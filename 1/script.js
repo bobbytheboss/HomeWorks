@@ -9,9 +9,9 @@ console.clear();
 // Длинна номера не должна быть не меньше 9 и не больше 11
 
 // * Your code Start *
-var phone = prompt("enter your phone");
+var phone = prompt("enter your phone", 0); // Лучше всегда указывать default параметр, так как в ie он по умолчанию будет undefinded
 alert(phone.length);
-if(phone.length>=9 && phone.length<=11){
+if(phone.length >= 9 && phone.length <= 11){
     alert('Hello');
 } else {
     alert('enter a valid number');
