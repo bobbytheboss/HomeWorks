@@ -177,7 +177,7 @@ for ( i;i<=summetNumber;i++){
 //     const board = document.querySelector('.board');
 //     const fraction = document.createElement('div');
 //     board.appendChild(fraction);
-// }
+// } // В целом можно использовать было этот блок для прорисовки, я же специально дал пример что б не делать костылей)
 
 const size = 8;
 
