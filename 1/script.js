@@ -1,13 +1,13 @@
-/**
- * Created by shef on 18.06.17.
- */
+// /**
+//  * Created by shef on 18.06.17.
+//  */
 console.clear();
-
+//
 // ## 0 Проверка диапазона
 //
 // Напишите код который б проверял длинну телефонного номера
 // Длинна номера не должна быть не меньше 9 и не больше 11
-
+//
 // * Your code Start *
 var phone = prompt("enter your phone");
 alert(phone.length);
@@ -16,14 +16,14 @@ if(phone.length>=9 && phone.length<=11){
 } else {
     alert('enter a valid number');
 }
-
-// * Your code End *
-
-
-// ## 1 Клонирование обьектов
 //
-// Склонируйте обьект objectA в objectB при помощи цикла
-
+// // * Your code End *
+//
+//
+// // ## 1 Клонирование обьектов
+// //
+// // Склонируйте обьект objectA в objectB при помощи цикла
+//
 var objectA = {
     name: 'John',
     lastname: 'Dou',
@@ -38,26 +38,26 @@ for (var key in objectA){
 }
 console.log(objectB);
 
-
-// * Your code End *
-
-// Переопределяем значения обьекта objectA
+//
+// // * Your code End *
+//
+// // Переопределяем значения обьекта objectA
 objectA.name = 'Chris';
 objectA.name = 'Couer';
 objectA.name = '45';
 
-// Если обьект objectB склонирован, значения в нем меняться не будут
-// Выводим значения склонированного обьекта для проверки
+// // Если обьект objectB склонирован, значения в нем меняться не будут
+// // Выводим значения склонированного обьекта для проверки
 console.log(objectB.name); // John
 console.log(objectB.lastname); // Dou
 console.log(objectB.age); // 50
 
 
-// ## 2 Ветвление
-// При помощи конструкци switch/case выведете текущую дату
-// Название месяца должно иметь вид строки
-// Например = 14 Июня 2017
-
+// // ## 2 Ветвление
+// // При помощи конструкци switch/case выведете текущую дату
+// // Название месяца должно иметь вид строки
+// // Например = 14 Июня 2017
+//
 var date = new Date();
 var day = date.getDate(); // Текущий день
 var month = date.getMonth(); // Текущий месяц (от 0 до 11)
@@ -80,11 +80,9 @@ switch (month){
     case 11: monthName = 'декабря'; break;
 }
 
-
-// * Your code End *
-
+// // * Your code End *
+//
 console.log(`Today is: ${day} ${monthName} ${year}`) // Пример: 14 Июня 2017
-
 
 
 // ## 3 Взаимодействие с пользователем
@@ -127,5 +125,76 @@ while (!zadacha){
     }
 }
 
+
+// * Your code End *
+
+// ## 4
+// Создайте беспрерывный цикл который принимает от пользователя числа, и суммирует
+// Цикл прирывается только в том случае если пользователь ввел что либо кроме числа
+// После прерывания цикла выводится сумма введеных чисел
+
+// * Your code Start *
+
+var sumOfnum = 0;
+var perekluchatel=false;
+while (!perekluchatel){
+    var yourNumb = prompt("enter your number", "");
+    if (yourNumb.replace(/\d/g, '').length == 0){      //Вырезаем со строки цифры с помощью регулярного выражения
+        yourNumb = parseInt(yourNumb);              // приводим строку у типу int
+        sumOfnum += yourNumb;
+        //console.log('cifra');
+    } else {
+        alert('Сумма циф: ' + sumOfnum);
+        perekluchatel = true;
+    }
+}
+// * Your code End *
+
+// ## 5
+// Найдите сумму  1 + 2 + 3 + ... + N, где число N вводится пользователем из prompt
+
+// * Your code Start *
+
+var summetNumber = prompt('Please enter number', 0);
+var summ = 0;
+var i = 0;
+for ( i;i<=summetNumber;i++){
+    summ +=i;
+    console.log(summ);
+}
+
+// * Your code End *
+// ## 6
+// Нарисовать шахматную доску используя вложенные циклы (Доска находится в файле html)
+// Размер шахматной доски стандартны 8х8
+// Функция drawFractions - вспомогательная, при ее вызове в к блоку board в html добаляется 1 квардрат доски
+// Ее можно не трогать
+// Например что бы нарисовать 1 квадрат нужно вызвать ее 1 раз: drawFraction();
+// Так же доски должны иметь черный\белый цвет. Реализовать это можно при помощи как css так и js
+
+
+// var drawFraction = function(){
+//     const board = document.querySelector('.board');
+//     const fraction = document.createElement('div');
+//     board.appendChild(fraction);
+// }
+
+const size = 8;
+
+var table = document.createElement("table");
+for (var i = 1; i <= size; i++) {
+    var tr = document.createElement('tr');
+    for (var j = 1; j <= size; j++) {
+        var td = document.createElement('td');
+        if (i%2 == j%2) {
+            td.className = "white";
+        } else {
+            td.className = "black";
+        }
+        tr.appendChild(td);
+    }
+    table.appendChild(tr);
+}
+document.body.appendChild(table);
 
 // * Your code End *
